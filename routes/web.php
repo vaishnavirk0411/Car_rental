@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +18,16 @@ Route::get('/', function () {
 });
 
 
-Route::get('/car', function () {
-    return view('admin.car');
-})->name('car');
+// Route::get('/car', function () {
+//     return view('admin.car');
+// })->name('car');
 
 
 Route::get('/bookcar', function () {
     return view('admin.bookedcar');
 })->name('bookcar');
+
+Route::get('/car',[CarController::class,'list'])->name('car');
+Route::post('/car',[CarController::class,'addcar']);
+
+Route::get('get-carlist',[CarController::class,'getCarList']);
