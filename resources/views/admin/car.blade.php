@@ -48,49 +48,51 @@
   </nav>
   
    <div class="container-fluid">
-  <form>
+  <form id="" method="post" action="/car" enctype="multipart/form-data">
+
+  {{ csrf_field() }}
   <div class="form-row">
     
      <div class="col-md-6 mb-3">
       <div class="len">
        <label for="validationDefault03">Name Of Car </label>
-      <input type="url" class="form-control" id="validationDefault03" required>
+      <input name="car_name"  type="text" class="form-control" id="car_name" required>
   </div>
 </div>
 <div class="col-md-6 mb-3">
       <label for="validationDefault01">Plate Number</label>
-      <input type="text" class="form-control" id="validationDefault01" value="" required placeholder="MH.16 etc.">
+      <input name="plateno" type="text" class="form-control" id="plateno" value="" required placeholder="MH.16 etc.">
     </div>
      <div class="col-md-6 mb-3">
       <div class="len">
        <label for="validationDefault03">No. of seats </label>
-      <input type="url" class="form-control" id="validationDefault03" required>
+      <input name="seatno" type="number" class="form-control" id="seatno" required>
   </div>
 </div>
 <div class="col-md-6 mb-3">
       <label for="validationDefault01">Price per Km</label>
-      <input type="text" class="form-control" id="validationDefault01" value="" required>
+      <input name="price" type="number" class="form-control" id="price" value="" required>
     </div>
      <div class="col-md-6 mb-3">
       <div class="len">
-       <label for="validationDefault03">Model No. </label>
-      <input type="url" class="form-control" id="validationDefault03" required>
+       <label for="validationDefault03">Model Name </label>
+      <input name="modelno" type="text" class="form-control" id="modelno" required>
   </div>
 </div>
     <div class="col-md-6 mb-3">
       <label for="validationDefault01">Transmission</label>
-      <input type="text" class="form-control" id="validationDefault01" value="" required placeholder="Auto/Manual">
+      <input name="transmission" type="text" class="form-control" id="transmission" value="" required placeholder="Auto/Manual">
     </div>
      <div class="col-md-6 mb-3">
       <div class="len">
        <label for="validationDefault03">Fuel </label>
-      <input type="url" class="form-control" id="validationDefault03" required placeholder="Petrol/Diesel">
+      <input name="fuel" type="text" class="form-control" id="fuel" required placeholder="Petrol/Diesel">
 
   </div>
 </div>
 <div class="col-md-6 mb-3">
       <label for="validationDefault01">Description</label>
-      <input type="text" class="form-control" id="validationDefault01" value="" required>
+      <input name="desc" type="text" class="form-control" id="desc" value="" required>
     </div>
 
    
@@ -122,29 +124,35 @@
       <th scope="col">Transmision</th>
       <th scope="col">Fuel</th>
       <th scope="col">Description</th>
+      <th scope="col">active</th>
       <td scope="col">Created at</td>
       <td scope="col">Updated at</td>
     </tr>
   </thead>
   <tbody>
     <tr>
-    
-      <td>ABCD</td>
-      <td>www.abc</td>
-      <td>www.abc</td>
-      <td>www.abc</td>
-      <td>www.abc</td>
+    @forelse($carList as $car)
+      <td>{{$car->car_id}}</td>
+      <td>{{$car->car_unique_id}}</td>
+      <td>{{$car->car_name}}</td>
+      <td>{{$car->plate_no}}</td>
+      <td>{{$car->seat_no}}</td>
       
-      <td>www.abc</td>
-      <td>www.abc</td>
-      <td>www.abc</td>
-      <td>www.abc</td>
-      <td>www.abc</td>
-      <td><i class="fa fa-file-image-o" aria-hidden="true"></i></td>
-      <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+      <td>{{$car->price_km}}</td>
+      <td>{{$car->model_name}}</td>
+      <td>{{$car->transmission}}</td>
+      <td>{{$car->fuel}}</td>
+      <td>{{$car->description}}</td>
+      <td>{{$car->is_active}}</td>
+      <td>{{$car->created_at}}</td>
+      <td>{{$car->updated_at}}</td>
+      <!-- <td><i class="fa fa-file-image-o" aria-hidden="true"></i></td>
+      <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i><i class="fa fa-trash-o" aria-hidden="true"></i></td> -->
     </tr>
     
-      
+    @empty
+        <p>No car</p>
+    @endforelse
   </tbody>
 </table>
   </div>

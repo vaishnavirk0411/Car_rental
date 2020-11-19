@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,17 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// asa
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/car', function () {
-    return view('admin.car');
-})->name('car');
+// Route::get('/car', function () {
+//     return view('admin.car');
+// })->name('car');
 
 
 Route::get('/bookcar', function () {
     return view('admin.bookedcar');
 })->name('bookcar');
+
+Route::get('/car',[CarController::class,'list'])->name('car');
+Route::post('/car',[CarController::class,'addcar']);
+
+Route::get('get-carlist',[CarController::class,'getCarList']);
