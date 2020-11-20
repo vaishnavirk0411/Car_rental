@@ -47,5 +47,30 @@ class CarController extends Controller
         $car->car_unique_id = (string) Str::uuid();
     	$car->save();
 	  return redirect()->route('car');   	    
-	}
+    }
+    
+    public function editCar(Request $req,$id){     
+        
+        $car =Car::find($req->id);  
+       $car->car_name = $req->car_name;
+       $car->plate_no = $req->plateno;
+          $car->seat_no = $req->seatno;
+       $car->description = $req->desc; 
+       $car->price_km = $req->price;
+       $car->model_name = $req->modelno;
+       $car->transmission = $req->transmission;
+       $car->fuel = $req->fuel;
+
+       if($req->hasfile('myfile')){
+           $file = $req->file('myfile');
+           $extension = $file->getClientOriginalExtension();
+           $filename = time() . '.' . $extension;
+           $file->move('img/carimg/',$filename);
+           $car->car_image=$filename;
+       }
+     
+  
+       $car->save();
+     return redirect()->route('car');   	    
+   }
 }

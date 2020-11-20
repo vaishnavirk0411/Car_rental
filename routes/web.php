@@ -29,6 +29,7 @@ Route::get('/bookcar', function () {
 
 Route::get('/car',[CarController::class,'list'])->name('car');
 Route::post('/car',[CarController::class,'addcar']);
+Route::post('/car/{id}',[CarController::class,'editCar']);
 
 Route::get('get-carlist',[CarController::class,'getCarList']);
 Route::post('/car/{id}',[CarController::class,'editCar']);
