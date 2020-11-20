@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VYX Monkey</title>
+  <title>Click & Go</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet"  href="css/style.css">
   <link rel="stylesheet"  href="css/all.min.css">
@@ -48,7 +48,7 @@
   </nav>
   
    <div class="container-fluid">
-  <form id="" method="post" action="/car" enctype="multipart/form-data">
+  <form id="cardata" method="post" action="/car" enctype="multipart/form-data">
 
   {{ csrf_field() }}
   <div class="form-row">
@@ -124,9 +124,12 @@
       <th scope="col">Transmision</th>
       <th scope="col">Fuel</th>
       <th scope="col">Description</th>
+      <th scope="col">Image</th>
+
       <th scope="col">active</th>
       <td scope="col">Created at</td>
       <td scope="col">Updated at</td>
+      <td scope="col">Action</td>
     </tr>
   </thead>
   <tbody>
@@ -143,9 +146,12 @@
       <td>{{$car->transmission}}</td>
       <td>{{$car->fuel}}</td>
       <td>{{$car->description}}</td>
+      <td><img src="{{ asset('/img/carimg/' . $car->car_image) }}" alt="image" width="70px;"></td>
       <td>{{$car->is_active}}</td>
       <td>{{$car->created_at}}</td>
       <td>{{$car->updated_at}}</td>
+      <td align="center" class="footable-visible footable-last-column"> 
+          <a  onclick="updateSlider({{$car}})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> </td>
       <!-- <td><i class="fa fa-file-image-o" aria-hidden="true"></i></td>
       <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i><i class="fa fa-trash-o" aria-hidden="true"></i></td> -->
     </tr>
@@ -156,7 +162,7 @@
   </tbody>
 </table>
   </div>
-
+  <script src="/js/script.js"></script>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
