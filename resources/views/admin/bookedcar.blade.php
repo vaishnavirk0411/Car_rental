@@ -11,13 +11,11 @@
   <link rel="stylesheet"  href="css/all.min.css">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="cssfile.css">
+  <script src="script.js"></script>
 </head>
 
 <body>
-
-
-
-  <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
+ <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
     <div class="container-fluid">
       <a href={{route('car')}} class="navbar-brand ">
           <div id="logo-img" alt="Logo image"><img src="images/car.png" height="auto" width="160px" style="margin-left: 50px;"></div>
@@ -57,6 +55,8 @@
       
     </tr>
   </thead>
+
+  
   <tbody>
     <tr>
     

@@ -9,7 +9,7 @@
   <link rel="stylesheet"  href="css/style.css">
   <link rel="stylesheet"  href="css/all.min.css">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<script src="script.js"></script>
 </head>
 
 <body>
@@ -127,6 +127,9 @@
       <th scope="col">active</th>
       <td scope="col">Created at</td>
       <td scope="col">Updated at</td>
+      <td scope="col">Action</td>
+      
+      
     </tr>
   </thead>
   <tbody>
@@ -146,6 +149,8 @@
       <td>{{$car->is_active}}</td>
       <td>{{$car->created_at}}</td>
       <td>{{$car->updated_at}}</td>
+     <td align="center" class="footable-visible footable-last-column">
+          <a  onclick="updatecar({{$car}})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> </td> 
       <!-- <td><i class="fa fa-file-image-o" aria-hidden="true"></i></td>
       <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i><i class="fa fa-trash-o" aria-hidden="true"></i></td> -->
     </tr>
