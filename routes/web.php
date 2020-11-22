@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+/* Route::get('/user', function () {
+    return view('admin.user');
+})->name('user'); */
 // Route::get('/car', function () {
 //     return view('admin.car');
 // })->name('car');
@@ -33,3 +36,6 @@ Route::post('/car/{id}',[CarController::class,'editCar']);
 
 Route::get('get-carlist',[CarController::class,'getCarList']);
 Route::post('/car/{id}',[CarController::class,'editCar']);
+
+Route::get('/user',[UserController::class,'list'])->name('user');
+Route::get('get-userlist',[UserController::class,'getuserList']);

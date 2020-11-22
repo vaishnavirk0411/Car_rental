@@ -25,6 +25,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul id="nav-list" class="nav navbar-nav mr-auto">
+          <li class="nav-item ">
+              <a href={{route('user')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Users</span></a>
+            </li>
             <li class="nav-item ">
               <a href={{route('car')}} class="nav-link"><span><i class="fa fa-briefcase" aria-hidden="true"></i>Cars</span></a>
             </li>

@@ -4,11 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< HEAD
-  <title>Click&Go</title>
-=======
   <title>Click & Go</title>
->>>>>>> 304ac170d3f949a7891cb5a6ffcae871f0261b24
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet"  href="css/style.css">
   <link rel="stylesheet"  href="css/all.min.css">
@@ -30,6 +26,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul id="nav-list" class="nav navbar-nav mr-auto">
+          <li class="nav-item ">
+              <a href={{route('user')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Users</span></a>
+            </li>
             <li class="nav-item ">
               <a href={{route('car')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Cars</span></a>
             </li>
