@@ -18,8 +18,8 @@ class CreateCarTable extends Migration
              $table->string('car_unique_id',255);
              $table->string('car_name',255);
              $table->string('plate_no');
-             $table->int('seat_no');
-             $table->int('price_km');
+             $table->integer('seat_no');
+             $table->integer('price_km');
              $table->string('model_name');
              $table->string('transmission');
              $table->string('fuel');

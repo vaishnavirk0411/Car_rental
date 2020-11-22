@@ -5,19 +5,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VFX Monkey</title>
+  <title>Click&Go</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet"  href="css/style.css">
   <link rel="stylesheet"  href="css/all.min.css">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="cssfile.css">
+  <script src="script.js"></script>
 </head>
 
 <body>
-
-
-
-  <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
+ <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
     <div class="container-fluid">
       <a href={{route('car')}} class="navbar-brand ">
           <div id="logo-img" alt="Logo image"><img src="images/car.png" height="auto" width="160px" style="margin-left: 50px;"></div>
@@ -27,6 +25,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul id="nav-list" class="nav navbar-nav mr-auto">
+          <li class="nav-item ">
+              <a href={{route('user')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Users</span></a>
+            </li>
             <li class="nav-item ">
               <a href={{route('car')}} class="nav-link"><span><i class="fa fa-briefcase" aria-hidden="true"></i>Cars</span></a>
             </li>
@@ -57,6 +58,8 @@
       
     </tr>
   </thead>
+
+  
   <tbody>
     <tr>
     

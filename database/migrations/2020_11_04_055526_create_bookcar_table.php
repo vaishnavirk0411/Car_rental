@@ -14,7 +14,12 @@ class CreateBookcarTable extends Migration
     public function up()
     {
         Schema::create('bookcar', function (Blueprint $table) {
-            $table->string('car_id', 255);
+            $table->integer('car_id');
+            $table->integer('cust_id');
+            $table->date('pick_date');
+            $table->date('drop_date');
+            $table->tinyInteger('is_active')->default(1);
+
             $table->timestamps();
         });
     }
@@ -27,5 +32,6 @@ class CreateBookcarTable extends Migration
     public function down()
     {
         Schema::dropIfExists('bookcar');
-    }
+    }  
+
 }
