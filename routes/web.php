@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +20,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/car', function () {
-    return view('admin.car');
-})->name('car');
+// Route::get('/car', function () {
+//     return view('admin.car');
+// })->name('car');
 
 
-Route::get('/bookcar', function () {
-    return view('admin.bookedcar');
-})->name('bookcar');
+// Route::get('/bookcar', function () {
+//     return view('admin.bookedcar');
+// })->name('bookcar');
+
+Route::get('/car',[CarController::class,'list'])->name('car');

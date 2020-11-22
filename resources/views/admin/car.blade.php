@@ -128,7 +128,7 @@
   </thead>
   <tbody>
     <tr>
-    
+      @forelse()
       <td>ABCD</td>
       <td>www.abc</td>
       <td>www.abc</td>
