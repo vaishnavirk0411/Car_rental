@@ -9,7 +9,7 @@
   <link rel="stylesheet"  href="css/style.css">
   <link rel="stylesheet"  href="css/all.min.css">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="script.js"></script>
+
 </head>
 
 <body>
@@ -26,9 +26,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul id="nav-list" class="nav navbar-nav mr-auto">
-          <li class="nav-item ">
-              <a href={{route('user')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Users</span></a>
-            </li>
+              <li class="nav-item ">
+                <a href={{route('user')}} class="nav-link"><span><i class="fa fa-user" aria-hidden="true"></i>Users</span></a>
+              </li>
             <li class="nav-item ">
               <a href={{route('car')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Cars</span></a>
             </li>
@@ -43,8 +43,12 @@
 
             <ul id="nav-list" class="nav navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fa fa-cog" aria-hidden="true"></i><span>Settings</span></a>
+                          <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">                                                           
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>  {{ __('Logout') }}
+                            </x-jet-dropdown-link>
+                        </form>
             </li></ul>
       </div>
     </div>

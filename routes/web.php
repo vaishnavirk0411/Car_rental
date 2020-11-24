@@ -29,16 +29,32 @@ Route::get('/', function () {
 //     return view('admin.bookedcar');
 // })->name('bookcar');
 
-Route::get('/bookcar', function () {
-    return view('admin.bookedcar');
-})->name('bookcar');
+// Route::get('/bookcar', function () {
+//     return view('admin.bookedcar');
+// })->name('bookcar');
 
+// Route::get('/car',[CarController::class,'list'])->name('car');
+// Route::post('/car',[CarController::class,'addcar']);
+// Route::post('/car/{id}',[CarController::class,'editCar']);
+
+// Route::get('get-carlist',[CarController::class,'getCarList']);
+// Route::post('/car/{id}',[CarController::class,'editCar']);
+
+// Route::get('/user',[UserController::class,'list'])->name('user');
+// Route::get('get-userlist',[UserController::class,'getuserList']);
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    
 Route::get('/car',[CarController::class,'list'])->name('car');
 Route::post('/car',[CarController::class,'addcar']);
 Route::post('/car/{id}',[CarController::class,'editCar']);
 
 Route::get('get-carlist',[CarController::class,'getCarList']);
 Route::post('/car/{id}',[CarController::class,'editCar']);
+    Route::get('/user',[UserController::class,'list'])->name('user');
+    Route::get('get-userlist',[UserController::class,'getuserList']);
 
-Route::get('/user',[UserController::class,'list'])->name('user');
-Route::get('get-userlist',[UserController::class,'getuserList']);
+    Route::get('/bookcar', function () {
+        return view('admin.bookedcar');
+    })->name('bookcar');
+});

@@ -29,7 +29,7 @@
         
           <ul id="nav-list" class="nav navbar-nav mr-auto">
           <li class="nav-item ">
-              <a href={{route('user')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Users</span></a>
+              <a href={{route('user')}} class="nav-link"><span><i class="fa fa-user" aria-hidden="true"></i>Users</span></a>
             </li>
             <li class="nav-item ">
               <a href={{route('car')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Cars</span></a>
@@ -38,9 +38,16 @@
               <li class="nav-item dropdown">
               <a href={{route('bookcar')}} class="nav-link"><span><i class="fa fa-car" aria-hidden="true"></i>Booked Cars</span></a>
               </li>
-
-          
-
+           </ul>
+            <ul id="nav-list" class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <form method="POST" action="{{ route('logout') }}">
+                      @csrf
+                      <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">                                                           
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>  {{ __('Logout') }}
+                      </x-jet-dropdown-link>
+                  </form>
+                </li>
             </ul>
 
             
